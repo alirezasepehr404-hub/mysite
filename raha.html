@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Raha ❤️</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;500;700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Vazirmatn', sans-serif;
+    background: radial-gradient(circle at center, #571b45, #200c2b, #100819);
+    color: white;
+}
+
+.stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+}
+
+.star {
+    position: absolute;
+    color: #ffd6e7;
+    animation: sparkle 3s infinite ease-in-out;
+}
+
+@keyframes sparkle {
+    0%,100% {opacity:.2; transform:scale(.7);}
+    50% {opacity:1; transform:scale(1.4);}
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    width: 90%;
+    max-width: 450px;
+    padding: 35px 20px;
+    border: 1px solid #ffffff30;
+    border-radius: 30px;
+    background: #ffffff0d;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 60px #ff3c8b25;
+    animation: appear 1.5s ease;
+}
+
+@keyframes appear {
+    from {opacity:0; transform:translateY(35px);}
+    to {opacity:1; transform:translateY(0);}
+}
+
+h1 {
+    font-size: 38px;
+    color: #ff9ac4;
+    text-shadow: 0 0 20px #ff4f91;
+    margin-bottom: 12px;
+}
+
+.heart {
+    font-size: 125px;
+    display: inline-block;
+    filter: drop-shadow(0 0 25px #ff1744);
+    animation: heartbeat 1.2s infinite;
+}
+
+@keyframes heartbeat {
+    0%,100% {transform:scale(1);}
+    15% {transform:scale(1.2);}
+    30% {transform:scale(1);}
+    45% {transform:scale(1.15);}
+}
+
+.message {
+    font-size: 17px;
+    line-height: 2.3;
+    color: #ffe0ed;
+    margin-top: 15px;
+}
+
+button {
+    margin-top: 25px;
+    border: none;
+    padding: 13px 30px;
+    border-radius: 30px;
+    background: linear-gradient(90deg,#ff3d81,#ff78a8);
+    color: white;
+    font-family: inherit;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 0 25px #ff3d8170;
+    transition: .3s;
+}
+
+button:hover {
+    transform: scale(1.08);
+}
+
+#secret {
+    display: none;
+    margin-top: 22px;
+    color: #ffb6d5;
+    font-size: 18px;
+    animation: appear 1s;
+}
+
+.floating {
+    position: fixed;
+    bottom: -40px;
+    animation: floatUp linear forwards;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.footer {
+    margin-top: 25px;
+    font-size: 12px;
+    color: #d9a3bb;
+}
+</style>
+</head>
+
+<body>
+
+<div class="stars" id="stars"></div>
+
+<div class="container">
+
+    <div class="heart">❤️</div>
+
+    <h1>Raha</h1>
+
+    <div class="message">
+        بعضی آدم‌ها خاص نیستن...<br>
+        اونا معنی خاص بودن رو عوض می‌کنن. ✨
+        <br><br>
+        و تو یکی از قشنگ‌ترین اتفاق‌های دنیایی 💗
+    </div>
+
+    <button onclick="showLove()">
+        یه پیام مخصوص تو 💌
+    </button>
+
+    <div id="secret">
+        رها جان، این قلب کوچیک فقط برای توئه! ❤️
+        <br>
+        همیشه بخند، چون لبخندت قشنگه. 🥹
+    </div>
+
+    <div class="footer">
+        Made with love ❤️
+    </div>
+
+</div>
+
+<script>
+const stars = document.getElementById("stars");
+
+for(let i=0; i<65; i++) {
+    let s = document.createElement("span");
+    s.className = "star";
+    s.innerHTML = "✦";
+    s.style.left = Math.random()*100+"%";
+    s.style.top = Math.random()*100+"%";
+    s.style.animationDelay = Math.random()*3+"s";
+    s.style.fontSize = (8+Math.random()*13)+"px";
+    stars.appendChild(s);
+}
+
+function showLove() {
+    document.getElementById("secret").style.display = "block";
+}
+
+function createHeart() {
+    let h = document.createElement("div");
+    h.className = "floating";
+    h.innerHTML = ["❤️","💗","💕","✨","🌸"][Math.floor(Math.random()*5)];
+    h.style.left = Math.random()*100+"%";
+    h.style.fontSize = (15+Math.random()*25)+"px";
+    h.style.animationDuration = (5+Math.random()*5)+"s";
+    document.body.appendChild(h);
+    setTimeout(() => h.remove(), 10000);
+}
+
+setInterval(createHeart, 450);
+</script>
+
+</body>
+</html>
